@@ -4,14 +4,32 @@
   <div class="control-row">
     <div class="control no-margin">
       <label for="email">Email</label>
-      <input id="email" type="email" name="emailName" ngModel/>
+      <input id="email" type="email" name="emailName" ngModel required email #emailCtrl="ngModel"/>
     </div>
 
     <div class="control no-margin">
       <label for="password">Password</label>
-        <input id="password" type="password" name="passwordName" ngModel/>
+      <input
+        id="password"
+        type="password"
+        name="passwordName"
+        ngModel
+        required
+        minlength="6"
+        #passwordCtrl="ngModel"
+      />
     </div>
 
     <button class="button">Login</button>
   </div>
+
+  <!-- @if(loginForm.form.invalid && loginForm.form.touched && 
+  loginForm.form.controls['emailName']?.touched && 
+  loginForm.form.controls['passwordName']?.touched)  -->
+  @if(emailCtrl.touched && passwordCtrl.touched && loginForm.form.invalid)
+  {
+    <p class="control-error">
+      Invalid Input. Please check your entered data!
+    </p>
+  }
 </form>

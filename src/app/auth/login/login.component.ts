@@ -13,6 +13,9 @@ export class LoginComponent {
 
 
   onSubmit(formData: NgForm){
+    if(formData.form.invalid){
+      return;
+    }
     console.log(formData);
     const email = formData.value.emailName;
     const password = formData.value.passwordName;
