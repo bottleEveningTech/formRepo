@@ -19,6 +19,11 @@
    <p class="control-error">
       Invalid Email. Please check your entered data!
     </p>
+  }
 
+    @if (loginForm.controls.password.touched && loginForm.controls.password.dirty && loginForm.controls.password.invalid) {
+   <p class="control-error">
+      Invalid Password. Please check your entered data!
+    </p>
   }
 </form>
