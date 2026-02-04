@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <h2>Login</h2>
 
   <div class="control-row">
@@ -14,4 +14,11 @@
 
     <button class="button">Login</button>
   </div>
+
+  @if (loginForm.controls.email.touched && loginForm.controls.email.dirty && loginForm.controls.email.invalid) {
+   <p class="control-error">
+      Invalid Email. Please check your entered data!
+    </p>
+
+  }
 </form>
